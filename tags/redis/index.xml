@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on you1knight</title>
+    <link>https://you1knight.github.io/tags/redis/</link>
+    <description>Recent content in Redis on you1knight</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://you1knight.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redis数据库</title>
+      <link>https://you1knight.github.io/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://you1knight.github.io/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/</guid>
+      <description>** 持久化
+1.RDB:通过配置redis在n秒内如果超过m个key被修改这执行一次RDB操作。snapshot触发的时机，是有“间隔时间”和“变更次数”共同决定，同时符合2个条件才会触发snapshot,否则“变更次数”会被继续累加到下一个“间隔时间”上。 优点：使用单独子进程来进行持久化，主进程不会进行任何IO操作，保证了redis的高性能 缺点：RDB是间隔一段时间进行持久化，如果持久化之间redis发生故障，会发生数据丢失。所以这种方式更适合数据要求不严谨的时候
+2.AOF:将“操作 + 数据”以格式化指令的方式追加到操作日志文件的尾部，在append操作返回后(已经写入到文件或者即将写入)，才进行实际的数据变更，“日志文件”保存了历史所有的操作过程 优点：可以保持更高的数据完整性，如果设置追加file的时间是1s，如果redis发生故障，最多会丢失1s的数据；且如果日志写入不完整支持redis-check-aof来进行日志修复；AOF文件没被rewrite之前（文件过大时会对命令进行合并重写），可以删除其中的某些命令（比如误操作的flushall）。 缺点：AOF文件比RDB文件大，且恢复速度慢。
+** 为什么redis是单线程的都那么快？
+1.数据存于内存 2.用了多路复用I/O 3.单线程
+** redis也可以进行发布订阅消息吗？</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -38,6 +38,10 @@
     font-weight: 500;
     src: url("../fonts/Work_Sans_500.eot?#iefix") format("embedded-opentype"), url("../fonts/Work_Sans_500.woff") format("woff"), url("../fonts/Work_Sans_500.woff2") format("woff2"), url("../fonts/Work_Sans_500.svg#WorkSans") format("svg"), url("../fonts/Work_Sans_500.ttf") format("truetype");
 }
+#new-colossus {
+    margin-left:14em;
+    font-weight:bold;
+}
 #time-element {
     margin-top:0.6em;
     right:5em;

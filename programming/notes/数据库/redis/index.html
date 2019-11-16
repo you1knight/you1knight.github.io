@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Reading</title>
+    <title>Redis数据库</title>
     
 
     
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/reading/">
+  <body class="" data-url="/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/">
     <nav id="sidebar" class="">
 
 
@@ -83,7 +83,7 @@
   
     
     <li data-nav-id="/programming/" title="Programming" class="dd-item 
-        
+        parent
         
         
         ">
@@ -110,7 +110,7 @@
   
     
     <li data-nav-id="/programming/notes/" title="Note" class="dd-item 
-        
+        parent
         
         
         ">
@@ -191,7 +191,7 @@
  
   
     
-      <li data-nav-id="/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/" title="Redis数据库" class="dd-item ">
+      <li data-nav-id="/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/" title="Redis数据库" class="dd-item active">
         <a href="/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/">
         Redis数据库
         
@@ -290,8 +290,8 @@
   
     
     <li data-nav-id="/reading/" title="Reading" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/reading/">
@@ -384,7 +384,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://you1knight.github.io/reading/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://you1knight.github.io/programming/notes/%e6%95%b0%e6%8d%ae%e5%ba%93/Redis.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -399,6 +399,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -409,7 +411,19 @@
             
           
           
-            <a href='/'>you1knight</a> > Reading
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>you1knight</a> > <a href='/programming/'>Programming</a> > <a href='/programming/notes/'>Note</a> > Redis数据库
+          
+         
+          
+         
           
          
           
@@ -418,42 +432,63 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
               </div>
             </div>
             
         
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/redis">Redis</a>
+
+</div>
+
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Redis数据库
+            </h1>
           
 
         
 
 
 
+<p>** 持久化</p>
 
-	
+<p>1.RDB:通过配置redis在n秒内如果超过m个key被修改这执行一次RDB操作。snapshot触发的时机，是有“间隔时间”和“变更次数”共同决定，同时符合2个条件才会触发snapshot,否则“变更次数”会被继续累加到下一个“间隔时间”上。
+优点：使用单独子进程来进行持久化，主进程不会进行任何IO操作，保证了redis的高性能
+缺点：RDB是间隔一段时间进行持久化，如果持久化之间redis发生故障，会发生数据丢失。所以这种方式更适合数据要求不严谨的时候</p>
 
-<h3 id="chapter-4">Chapter 4</h3>
+<p>2.AOF:将“操作 + 数据”以格式化指令的方式追加到操作日志文件的尾部，在append操作返回后(已经写入到文件或者即将写入)，才进行实际的数据变更，“日志文件”保存了历史所有的操作过程
+优点：可以保持更高的数据完整性，如果设置追加file的时间是1s，如果redis发生故障，最多会丢失1s的数据；且如果日志写入不完整支持redis-check-aof来进行日志修复；AOF文件没被rewrite之前（文件过大时会对命令进行合并重写），可以删除其中的某些命令（比如误操作的flushall）。
+缺点：AOF文件比RDB文件大，且恢复速度慢。</p>
 
-<h1 id="reading">Reading</h1>
+<p>** 为什么redis是单线程的都那么快？</p>
 
-<p>Discover what this Hugo theme is all about and the core-concepts behind it.</p>
+<p>1.数据存于内存
+2.用了多路复用I/O
+3.单线程</p>
 
-
-
+<p>** redis也可以进行发布订阅消息吗？</p>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div> 
         
@@ -485,8 +520,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -503,6 +536,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -516,37 +550,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -555,44 +560,6 @@
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
             
         
@@ -653,6 +620,76 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -700,3 +737,4 @@
 
   </body>
 </html>
+

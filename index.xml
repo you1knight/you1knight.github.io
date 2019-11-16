@@ -1,49 +1,78 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>且陶陶乐尽天真</title>
-    <link>http://you1knight.github.io/</link>
-    <description>Recent content on 且陶陶乐尽天真</description>
+    <title>you1knight</title>
+    <link>https://you1knight.github.io/</link>
+    <description>Recent content on you1knight</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Nov 2019 14:28:16 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 14 Nov 2019 15:00:00 +0800</lastBuildDate>
     
-	<atom:link href="http://you1knight.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://you1knight.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>TCP/IP协议</title>
-      <link>http://you1knight.github.io/programming/notes/tcpip%E5%8D%8F%E8%AE%AE/tcpip/</link>
+      <link>https://you1knight.github.io/programming/notes/tcpip%E5%8D%8F%E8%AE%AE/tcpip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://you1knight.github.io/programming/notes/tcpip%E5%8D%8F%E8%AE%AE/tcpip/</guid>
+      <guid>https://you1knight.github.io/programming/notes/tcpip%E5%8D%8F%E8%AE%AE/tcpip/</guid>
       <description>Discover what this Hugo theme is all about and the core-concepts behind it.</description>
     </item>
     
     <item>
       <title>HTTP协议</title>
-      <link>http://you1knight.github.io/programming/notes/http%E5%8D%8F%E8%AE%AE/http/</link>
+      <link>https://you1knight.github.io/programming/notes/http%E5%8D%8F%E8%AE%AE/http/</link>
       <pubDate>Mon, 04 Nov 2019 14:28:16 +0200</pubDate>
       
-      <guid>http://you1knight.github.io/programming/notes/http%E5%8D%8F%E8%AE%AE/http/</guid>
-      <description>Discover what this Hugo theme is all about and the core-concepts behind it.</description>
+      <guid>https://you1knight.github.io/programming/notes/http%E5%8D%8F%E8%AE%AE/http/</guid>
+      <description>Discover what this Hugo theme is all about and the core-concepts behind it.
+1.http请求和响应的头部 2.http与https的区别 3.TLS/SSL 4.get和post 5.Cookie和Session
+6.域名</description>
     </item>
     
     <item>
-      <title>数据库事务</title>
-      <link>http://you1knight.github.io/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/mysql/</link>
+      <title>MySQL数据库</title>
+      <link>https://you1knight.github.io/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/</link>
+      <pubDate>Thu, 14 Nov 2019 15:00:00 +0800</pubDate>
+      
+      <guid>https://you1knight.github.io/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/</guid>
+      <description>事务 1. 事务四大特征
+ 原子性 事务是数据库的逻辑工作单位，事务中包含的各操作要么都做，要么都不做 。
+ 一致性 事务的执行不能破坏数据库数据的完整性和一致性。一个事务在执行之前和执行之后，数据库都必须处于一致性状态。 比如：如果从A账户转账到B账户，不可能因为A账户扣了钱，而B账户没有加钱 。
+ 隔离性 在并发环境中，并发的事务是互相隔离的，一个事务的执行不能被其它事务干扰 。
+ 持久性 事务一旦提交后，数据库中的数据必须被永久的保存下来。即使服务器系统崩溃或服务器宕机等故障。只要数据库重新启动，那么一定能够将其恢复到事务成功结束后的状态。
+  2. 四种事务隔离级别 * Read uncommitted(读未提交)：就是一个事务可以读取另一个未提交事务的数据。(脏读)
+ Read committed(读已提交)：就是一个事务要等另一个事务提交后才能读取数据。(不可重复读)
+ Repeatable read(重复读)：就是在开始读取数据（事务开启）时，不再允许修改操作。(幻读)
+ Serializable(串行化)：当操作一行数据时，读写分别都会加锁。当出现读写锁互斥时，会排队串行执行。
+  值得一提的是：大多数数据库默认的事务隔离级别是Read committed，比如Sql Server , Oracle。Mysql的默认隔离级别是Repeatable read。
+锁机制 1. 悲观锁与乐观锁
+ 悲观锁：当我们要对一个数据库中的一条数据进行修改的时候，为了避免同时被其他人修改，最好的办法就是直接对该数据进行加锁以防止并发。这种借助数据库锁机制，在修改数据之前先锁定，再修改的方式被称之为悲观并发控制 乐观锁：乐观锁是相对悲观锁而言的，乐观锁假设数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲突了，则返回给用户错误的信息，让用户决定如何去做。  2. 对数据的操作类型分共享锁和排他锁 * 共享锁(读锁)：加了读锁，只允许别的事务继续加读锁而不能加写锁，也就是只读。 * 排他锁(写锁)：加了写锁，别的事务不允许加任何锁。 * 意向锁：意向锁是表级锁，但是却表示事务正在读或写某一行记录，而不是整个表。意向锁分为意向读锁(IS)和意向写锁(IX)。意向锁是为了让表锁和行锁共存 (表锁与行锁冲突案例：事务A锁住表中的一行，事务B锁住整个表，事务A既然锁住了某一行，其他事务就不可能修改这一行。这与”事务B锁住整个表就能修改表中的任意一行“形成了冲突)。
+3. 对数据的操作粒度分表锁和行锁 MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。
+ 表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。 行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。 页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。  4.</description>
+    </item>
+    
+    <item>
+      <title>Redis数据库</title>
+      <link>https://you1knight.github.io/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://you1knight.github.io/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/mysql/</guid>
-      <description>Discover what this Hugo theme is all about and the core-concepts behind it.</description>
+      <guid>https://you1knight.github.io/programming/notes/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/</guid>
+      <description>** 持久化
+1.RDB:通过配置redis在n秒内如果超过m个key被修改这执行一次RDB操作。snapshot触发的时机，是有“间隔时间”和“变更次数”共同决定，同时符合2个条件才会触发snapshot,否则“变更次数”会被继续累加到下一个“间隔时间”上。 优点：使用单独子进程来进行持久化，主进程不会进行任何IO操作，保证了redis的高性能 缺点：RDB是间隔一段时间进行持久化，如果持久化之间redis发生故障，会发生数据丢失。所以这种方式更适合数据要求不严谨的时候
+2.AOF:将“操作 + 数据”以格式化指令的方式追加到操作日志文件的尾部，在append操作返回后(已经写入到文件或者即将写入)，才进行实际的数据变更，“日志文件”保存了历史所有的操作过程 优点：可以保持更高的数据完整性，如果设置追加file的时间是1s，如果redis发生故障，最多会丢失1s的数据；且如果日志写入不完整支持redis-check-aof来进行日志修复；AOF文件没被rewrite之前（文件过大时会对命令进行合并重写），可以删除其中的某些命令（比如误操作的flushall）。 缺点：AOF文件比RDB文件大，且恢复速度慢。
+** 为什么redis是单线程的都那么快？
+1.数据存于内存 2.用了多路复用I/O 3.单线程
+** redis也可以进行发布订阅消息吗？</description>
     </item>
     
     <item>
       <title>消息队列</title>
-      <link>http://you1knight.github.io/programming/notes/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/mq/</link>
+      <link>https://you1knight.github.io/programming/notes/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/mq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://you1knight.github.io/programming/notes/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/mq/</guid>
+      <guid>https://you1knight.github.io/programming/notes/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/mq/</guid>
       <description>Kafka Discover what this Hugo theme is all about and the core-concepts behind it.
 RabbitMQ Discover what this Hugo theme is all about and the core-concepts behind it.</description>
     </item>
