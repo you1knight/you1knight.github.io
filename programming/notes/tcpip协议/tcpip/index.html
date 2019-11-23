@@ -13,20 +13,20 @@
     
 
     
-    <link href="/css/nucleus.css?1573913031" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1573913031" rel="stylesheet">
-    <link href="/css/hybrid.css?1573913031" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1573913031" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1573913031" rel="stylesheet">
-    <link href="/css/auto-complete.css?1573913031" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1573913031" rel="stylesheet">
-    <link href="/css/theme.css?1573913031" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1573913031" rel="stylesheet">
+    <link href="/css/nucleus.css?1574517884" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1574517884" rel="stylesheet">
+    <link href="/css/hybrid.css?1574517884" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1574517884" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1574517884" rel="stylesheet">
+    <link href="/css/auto-complete.css?1574517884" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1574517884" rel="stylesheet">
+    <link href="/css/theme.css?1574517884" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1574517884" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1573913031" rel="stylesheet">
+      <link href="/css/theme-green.css?1574517884" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1573913031"></script>
+    <script src="/js/jquery-3.3.1.min.js?1574517884"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1573913031"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1573913031"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1574517884"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1574517884"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/you1knight.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1573913031"></script>
+<script type="text/javascript" src="/js/search.js?1574517884"></script>
 
     
   </div>
@@ -434,7 +434,20 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ipv4报文格式">IPv4报文格式：</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -465,7 +478,23 @@
 
 
 
-<p>Discover what this Hugo theme is all about and the core-concepts behind it.</p>
+
+
+<h4 id="ipv4报文格式">IPv4报文格式：</h4>
+
+<p><img src="../../../../images/ipv4.jpg" alt="IPv4报文格式" /></p>
+
+<p><strong>1）版本</strong>：指IP协议的版本，目前广泛使用的版本号为4<br>
+<strong>2）首部长度</strong>：占4位，数值的单位为32位，即最大长度binary(1111)x32位=60字节<br>
+<strong>3）总长度</strong>：占16位，指首部和数据之和的长度，数值的单位为字节，最大长度为2^16-1=65535字节，以太网帧的最大传送单元MTU为1500字节<br>
+<strong>4）标识</strong>：占16位，它是一个计数器，每产生一个数据包就加1，并赋值给标识字段。但它并不是序号，因为IP是无连接服务。当一个数据报长度超过网络的MTU时，必须分片，此时每个数据报片都复制一次标识号以便能正确重装成原来的数据报。<br>
+<strong>5）标志</strong>：占3位，标志字段的最低位为MF，MF=1表示后面还有分片；MF=0表示最后一个分片。标志字段中间的一位时DF，只有当DF=0才表示允许分片。<br>
+<strong>6）片偏移</strong>：占13位，它指出较长的分组在分片后，某片在原分组中的相对位置。片偏移以8个字节为偏移单位，也即每个分片的长度一定时8字节的整数倍。<br>
+<strong>7）首部校验和</strong>：占16位，IP数据报的首部校验和只校验分组的首部，而不校验数据部分。<br>
+<strong>8）生存时间TTL</strong>：占8位，即数据报在网络中可通过的路由器数的最大值，标识分组在网络中的寿命，以确保分组不会永远在网络中循环。路由器在转发分组之前，先把TTL减1，若TTL被减为0，则该分组必须丢弃。<br>
+<strong>9）协议</strong>：占8位，指出此分组携带的数据是使用何种协议，即分组的数据部分应该交给哪个传输层协议，如TCP、UDP等。其中2表示IGMP，6表示TCP，17表示UPDP。<br>
+<strong>10）源地址字段</strong>：占32位，标识发送方的IP地址<br>
+<strong>11）目的地址字段</strong>：占32位，标识接受方的IP地址<br></p>
 
 
 <footer class=" footline" >
@@ -698,19 +727,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1573913031"></script>
-    <script src="/js/perfect-scrollbar.min.js?1573913031"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1573913031"></script>
-    <script src="/js/jquery.sticky.js?1573913031"></script>
-    <script src="/js/featherlight.min.js?1573913031"></script>
-    <script src="/js/highlight.pack.js?1573913031"></script>
+    <script src="/js/clipboard.min.js?1574517884"></script>
+    <script src="/js/perfect-scrollbar.min.js?1574517884"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1574517884"></script>
+    <script src="/js/jquery.sticky.js?1574517884"></script>
+    <script src="/js/featherlight.min.js?1574517884"></script>
+    <script src="/js/highlight.pack.js?1574517884"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1573913031"></script>
-    <script src="/js/learn.js?1573913031"></script>
-    <script src="/js/hugo-learn.js?1573913031"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1574517884"></script>
+    <script src="/js/learn.js?1574517884"></script>
+    <script src="/js/hugo-learn.js?1574517884"></script>
 
-    <link href="/mermaid/mermaid.css?1573913031" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1573913031"></script>
+    <link href="/mermaid/mermaid.css?1574517884" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1574517884"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

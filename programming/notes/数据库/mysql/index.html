@@ -13,20 +13,20 @@
     
 
     
-    <link href="/css/nucleus.css?1573913031" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1573913031" rel="stylesheet">
-    <link href="/css/hybrid.css?1573913031" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1573913031" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1573913031" rel="stylesheet">
-    <link href="/css/auto-complete.css?1573913031" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1573913031" rel="stylesheet">
-    <link href="/css/theme.css?1573913031" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1573913031" rel="stylesheet">
+    <link href="/css/nucleus.css?1574517884" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1574517884" rel="stylesheet">
+    <link href="/css/hybrid.css?1574517884" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1574517884" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1574517884" rel="stylesheet">
+    <link href="/css/auto-complete.css?1574517884" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1574517884" rel="stylesheet">
+    <link href="/css/theme.css?1574517884" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1574517884" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1573913031" rel="stylesheet">
+      <link href="/css/theme-green.css?1574517884" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1573913031"></script>
+    <script src="/js/jquery-3.3.1.min.js?1574517884"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1573913031"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1573913031"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1574517884"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1574517884"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/you1knight.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1573913031"></script>
+<script type="text/javascript" src="/js/search.js?1574517884"></script>
 
     
   </div>
@@ -441,7 +441,7 @@
 <li><a href="#事务">事务</a></li>
 <li><a href="#锁机制">锁机制</a></li>
 <li><a href="#索引">索引</a></li>
-<li><a href="#mysql数据库引擎">MySQL数据库引擎</a></li>
+<li><a href="#mysql数据库引擎-br">MySQL数据库引擎<br></a></li>
 </ul></li>
 </ul>
 </nav>
@@ -487,23 +487,20 @@
 <p><strong>1. 事务四大特征</strong></p>
 
 <ul>
-<li><p><strong><em>原子性</em></strong>
-事务是数据库的逻辑工作单位，事务中包含的各操作要么都做，要么都不做  。</p></li>
+<li><p><strong><em>原子性</em></strong>&emsp;事务是数据库的逻辑工作单位，事务中包含的各操作要么都做，要么都不做  。</p></li>
 
-<li><p><strong><em>一致性</em></strong>
-事务的执行不能破坏数据库数据的完整性和一致性。一个事务在执行之前和执行之后，数据库都必须处于一致性状态。  比如：如果从A账户转账到B账户，不可能因为A账户扣了钱，而B账户没有加钱  。</p></li>
+<li><p><strong><em>一致性</em></strong>&emsp;事务的执行不能破坏数据库数据的完整性和一致性。一个事务在执行之前和执行之后，数据库都必须处于一致性状态。  比如：如果从A账户转账到B账户，不可能因为A账户扣了钱，而B账户没有加钱  。</p></li>
 
-<li><p><strong><em>隔离性</em></strong>
-在并发环境中，并发的事务是互相隔离的，一个事务的执行不能被其它事务干扰  。</p></li>
+<li><p><strong><em>隔离性</em></strong>&emsp;在并发环境中，并发的事务是互相隔离的，一个事务的执行不能被其它事务干扰  。</p></li>
 
-<li><p><strong><em>持久性</em></strong>
-事务一旦提交后，数据库中的数据必须被永久的保存下来。即使服务器系统崩溃或服务器宕机等故障。只要数据库重新启动，那么一定能够将其恢复到事务成功结束后的状态。</p></li>
+<li><p><strong><em>持久性</em></strong>&emsp;事务一旦提交后，数据库中的数据必须被永久的保存下来。即使服务器系统崩溃或服务器宕机等故障。只要数据库重新启动，那么一定能够将其恢复到事务成功结束后的状态。</p></li>
 </ul>
 
-<p><strong>2. 四种事务隔离级别</strong>
-* <strong>Read uncommitted</strong>(读未提交)：就是一个事务可以读取另一个未提交事务的数据。(<font color=#FF0000><strong>脏读</strong></font>)</p>
+<p><strong>2. 四种事务隔离级别</strong></p>
 
 <ul>
+<li><p><strong>Read uncommitted</strong>(读未提交)：就是一个事务可以读取另一个未提交事务的数据。(<font color=#FF0000><strong>脏读</strong></font>)</p></li>
+
 <li><p><strong>Read committed</strong>(读已提交)：就是一个事务要等另一个事务提交后才能读取数据。(<font color=#FF0000><strong>不可重复读</strong></font>)</p></li>
 
 <li><p><strong>Repeatable read</strong>(重复读)：就是在开始读取数据（事务开启）时，不再允许修改操作。(<font color=#FF0000><strong>幻读</strong></font>)</p></li>
@@ -522,13 +519,17 @@
 <li>乐观锁：乐观锁是相对悲观锁而言的，乐观锁假设数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲突了，则返回给用户错误的信息，让用户决定如何去做。</li>
 </ul>
 
-<p><strong>2. 对数据的操作类型分<u>共享锁</u>和<u>排他锁</u></strong>
-* 共享锁(读锁)：加了读锁，只允许别的事务继续加读锁而不能加写锁，也就是只读。
-* 排他锁(写锁)：加了写锁，别的事务不允许加任何锁。
-* 意向锁：意向锁是表级锁，但是却表示事务正在读或写某一行记录，而不是整个表。意向锁分为意向读锁(IS)和意向写锁(IX)。<font color=#FF0000><strong>意向锁是为了让表锁和行锁共存</strong></font> (表锁与行锁冲突案例：事务A锁住表中的一行，事务B锁住整个表，事务A既然锁住了某一行，其他事务就不可能修改这一行。这与”事务B锁住整个表就能修改表中的任意一行“形成了冲突)。</p>
+<p><strong>2. 对数据的操作类型分<u>共享锁</u>和<u>排他锁</u></strong></p>
 
-<p><strong>3. 对数据的操作粒度分<u>表锁</u>和<u>行锁</u></strong>
-    MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</p>
+<ul>
+<li>共享锁(读锁)：加了读锁，只允许别的事务继续加读锁而不能加写锁，也就是只读。</li>
+<li>排他锁(写锁)：加了写锁，别的事务不允许加任何锁。</li>
+<li>意向锁：意向锁是表级锁，但是却表示事务正在读或写某一行记录，而不是整个表。意向锁分为意向读锁(IS)和意向写锁(IX)。<font color=#FF0000><strong>意向锁是为了让表锁和行锁共存</strong></font> (表锁与行锁冲突案例：事务A锁住表中的一行，事务B锁住整个表，事务A既然锁住了某一行，其他事务就不可能修改这一行。这与”事务B锁住整个表就能修改表中的任意一行“形成了冲突)。</li>
+</ul>
+
+<p><strong>3. 对数据的操作粒度分<u>表锁</u>和<u>行锁</u></strong></p>
+
+<p>&emsp;MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</p>
 
 <ul>
 <li><strong>表级锁</strong>：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。</li>
@@ -540,21 +541,25 @@
 
 <ul>
 <li>死锁:死锁是指两个或两个以上的进程在执行过程中,因争夺资源而造成的一种互相等待的现象,若无外力作用,它们都将无法推进下去.此时称系统处于死锁状态或系统产生了死锁,这些永远在互相等的进程称为死锁进程。</li>
-<li>更多关于死锁:
-<a href="http://hedengcheng.com/?p=771">MySQL加锁处理分析</a>
-<a href="https://blog.csdn.net/qq_34107571/article/details/78001309">MySQL产生死锁的根本原因及解决办法</a>
-<a href="https://www.cnblogs.com/LBSer/p/5183300.html">MySQL死锁问题分析</a></li>
+<li>更多关于死锁:<br>
+<a href="http://hedengcheng.com/?p=771"><em>MySQL加锁处理分析</em></a><br>
+<a href="https://blog.csdn.net/qq_34107571/article/details/78001309"><em>MySQL产生死锁的根本原因及解决办法</em></a><br>
+<a href="https://www.cnblogs.com/LBSer/p/5183300.html"><em>MySQL死锁问题分析</em></a>
+<br /></li>
 </ul>
 
-<p><strong>5. 相关命令:</strong>
-* 查询是否锁表
-show OPEN TABLES where In_use &gt; 0;
-* 查询进程
-show processlist
-* 查看正在锁的事务
-SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS;
-* 查看等待锁的事务
-SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</p>
+<p><strong>5. 相关命令:</strong></p>
+
+<ul>
+<li>查询是否锁表<br>
+show OPEN TABLES where In_use &gt; 0;</li>
+<li>查询进程<br>
+show processlist</li>
+<li>查看正在锁的事务<br>
+SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS;</li>
+<li>查看等待锁的事务<br>
+SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</li>
+</ul>
 
 <h2 id="索引">索引</h2>
 
@@ -565,7 +570,7 @@ SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</p>
 <li><strong>覆盖索引（Covering index)</strong>:从辅助索引中就可以直接得到查询的记录，而不需要再次查询聚集索引中的记录。使用覆盖索引的好处就是，辅助索引不包括整行记录的所有信息，所以覆盖索引的大小要小于聚集索引,因此可以减少IO次数。</li>
 </ul>
 
-<h2 id="mysql数据库引擎">MySQL数据库引擎</h2>
+<h2 id="mysql数据库引擎-br">MySQL数据库引擎<br></h2>
 
 <p>&emsp;InnoDB和MyISAM是许多人在使用MySQL时最常用的两个表类型，这两个表类型各有优劣，视具体应用而定。基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持以及外部键等高级数据库功能。</p>
 
@@ -814,19 +819,19 @@ SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1573913031"></script>
-    <script src="/js/perfect-scrollbar.min.js?1573913031"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1573913031"></script>
-    <script src="/js/jquery.sticky.js?1573913031"></script>
-    <script src="/js/featherlight.min.js?1573913031"></script>
-    <script src="/js/highlight.pack.js?1573913031"></script>
+    <script src="/js/clipboard.min.js?1574517884"></script>
+    <script src="/js/perfect-scrollbar.min.js?1574517884"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1574517884"></script>
+    <script src="/js/jquery.sticky.js?1574517884"></script>
+    <script src="/js/featherlight.min.js?1574517884"></script>
+    <script src="/js/highlight.pack.js?1574517884"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1573913031"></script>
-    <script src="/js/learn.js?1573913031"></script>
-    <script src="/js/hugo-learn.js?1573913031"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1574517884"></script>
+    <script src="/js/learn.js?1574517884"></script>
+    <script src="/js/hugo-learn.js?1574517884"></script>
 
-    <link href="/mermaid/mermaid.css?1573913031" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1573913031"></script>
+    <link href="/mermaid/mermaid.css?1574517884" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1574517884"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
